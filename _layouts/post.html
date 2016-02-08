@@ -1,0 +1,27 @@
+---
+layout: default
+---
+
+<div class="page-header">
+  <h1>{{ page.title }}</h1>
+</div>
+
+<div>
+  {{content}}
+</div>
+
+<div>
+  <small>
+    <p class="post-meta text-right"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+      {{ page.date | date: "%b %-d, %Y" }}</time>{% if page.author %}
+       • 
+      by <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}
+    </p>
+    <p class="text-right">
+      Tags: 
+      {% for tag in page.tags %}
+        {{tag}}&nbsp;&nbsp;
+      {% endfor %}
+    </p>
+  </small>
+</div>
